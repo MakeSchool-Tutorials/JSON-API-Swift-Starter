@@ -8,5 +8,7 @@ target 'API-Sandbox' do
   # Pods for API-Sandbox
   pod 'SwiftyJSON'
   pod 'Alamofire'
+  pod 'AlamofireImage'
+  pod 'AlamofireNetworkActivityIndicator'
 
 end
