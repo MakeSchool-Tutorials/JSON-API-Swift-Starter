@@ -35,8 +35,8 @@ internal func exerciseOne() {
      
      Now it's your turn to get the rest of the values needed to print the following:
      
-     "<first name> <last name> lives at <street name> in <city>, <state>, <post code>. 
-     If you want to contact <title>. <last name>, you can email <email address> or 
+     "<first name> <last name> lives at <street name> in <city>, <state>, <post code>.
+     If you want to contact <title>. <last name>, you can email <email address> or
      call at <cell phone number>."
      
      */
@@ -105,7 +105,7 @@ internal func exerciseThree() {
      contains the `String` "Disney". Iterate over all the values in `allMovies` to check!
      
      */
-//    print("The following movies are Disney movies...")
+//    print("The following movies are Disney movies:")
     
     
     
@@ -116,7 +116,7 @@ internal func exerciseThree() {
      movie that costs less than $15. Iterate over all the values in `allMovies` to check!
      
      */
-//    print("The following movies are cost less than $15...")
+//    print("The following movies are cost less than $15:")
     
     
     
@@ -127,7 +127,7 @@ internal func exerciseThree() {
      each movie released in 2016. Iterate over all the values in `allMovies` to check!
      
      */
-//    print("The following movies were released in 2016...")
+//    print("The following movies were released in 2016:")
     
     
     
