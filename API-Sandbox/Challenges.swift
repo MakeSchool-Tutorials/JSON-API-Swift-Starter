@@ -35,9 +35,9 @@ internal func exerciseOne() {
      
      Now it's your turn to get the rest of the values needed to print the following:
      
-     "<first name> <last name> lives at <street name> in <city>, <state>, <zip code> and is a
-     resident of <country>. If you want to contact them, you can email <title> <first name> at
-     <email address> or call their cell at <cell phone number>."
+     "<first name> <last name> lives at <street name> in <city>, <state>, <zip code>. 
+     If you want to contact <title>. <last name>, you can email <email address> or 
+     call at <cell phone number>."
      
      */
     
