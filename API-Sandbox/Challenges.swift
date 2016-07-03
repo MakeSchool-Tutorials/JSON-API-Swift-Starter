@@ -100,8 +100,8 @@ internal func exerciseThree() {
     
     /*
      
-     Uncomment the below print statement and then print out the titles of the two Disney
-     moves in allMovies. A movie is considered to be a "Disney movie" if `rightsOwner`
+     Uncomment the below print statement and then print out the names of the two Disney
+     movies in allMovies. A movie is considered to be a "Disney movie" if `rightsOwner`
      contains the `String` "Disney". Iterate over all the values in `allMovies` to check!
      
      */
@@ -112,7 +112,7 @@ internal func exerciseThree() {
     
     /*
      
-     Uncomment the below print statement and then print out the titles and prices of each
+     Uncomment the below print statement and then print out the name and price of each
      movie that costs less than $15. Iterate over all the values in `allMovies` to check!
      
      */
@@ -123,7 +123,7 @@ internal func exerciseThree() {
     
     /*
      
-     Uncomment the below print statement and then print out the titles and release date of
+     Uncomment the below print statement and then print out the name and release date of
      each movie released in 2016. Iterate over all the values in `allMovies` to check!
      
      */
