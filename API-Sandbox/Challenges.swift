@@ -64,7 +64,7 @@ internal func exerciseTwo() {
     
     
     let topMovieData = moviesData["feed"]["entry"][0]
-    let topMovie = Movie(json: topMovieData)!
+    let topMovie = Movie(json: topMovieData)
     
     // Uncomment this print statement when you are ready to check your code!
     
