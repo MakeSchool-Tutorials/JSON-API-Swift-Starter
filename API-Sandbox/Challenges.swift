@@ -62,7 +62,7 @@ internal func exerciseTwo() {
     // This JSON file contains the same data as the tutorial example.
     let moviesData = JSON(data: jsonData)
     
-    
+    // We save the value for ["feed"]["entry"][0] to topMovieData to pull out just the first movie's data
     let topMovieData = moviesData["feed"]["entry"][0]
     let topMovie = Movie(json: topMovieData)
     
