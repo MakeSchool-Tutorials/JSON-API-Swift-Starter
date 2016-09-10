@@ -12,11 +12,11 @@ import SwiftyJSON
 internal func exerciseOne() {
     // This would normally be network calls that return `NSData`. We'll show you how to do those soon!
     // In this case, we are using a local JSON file.
-    guard let jsonURL = NSBundle.mainBundle().URLForResource("Random-User", withExtension: "json") else {
+    guard let jsonURL = Bundle.main.url(forResource: "Random-User", withExtension: "json") else {
         print("Could not find Random-User.json!")
         return
     }
-    let jsonData = NSData(contentsOfURL: jsonURL)!
+    let jsonData = try! Data(contentsOf: jsonURL)
     
     
     // Enter SwiftyJSON!
@@ -50,11 +50,11 @@ internal func exerciseOne() {
 internal func exerciseTwo() {
     // This would normally be network calls that return `NSData`. We'll show you how to do those soon!
     // In this case, we are using a local JSON file.
-    guard let jsonURL = NSBundle.mainBundle().URLForResource("iTunes-Movies", withExtension: "json") else {
+    guard let jsonURL = Bundle.main.url(forResource: "iTunes-Movies", withExtension: "json") else {
         print("Could not find Random-User.json!")
         return
     }
-    let jsonData = NSData(contentsOfURL: jsonURL)!
+    let jsonData = try! Data(contentsOf: jsonURL)
     
     
     // Enter SwiftyJSON!
@@ -74,11 +74,11 @@ internal func exerciseTwo() {
 internal func exerciseThree() {
     // This would normally be network calls that return `NSData`. We'll show you how to do those soon!
     // In this case, we are using a local JSON file.
-    guard let jsonURL = NSBundle.mainBundle().URLForResource("iTunes-Movies", withExtension: "json") else {
+    guard let jsonURL = Bundle.main.url(forResource: "iTunes-Movies", withExtension: "json") else {
         print("Could not find Random-User.json!")
         return
     }
-    let jsonData = NSData(contentsOfURL: jsonURL)!
+    let jsonData = try! Data(contentsOf: jsonURL)
     
     // Enter SwiftyJSON!
     // moviesData now contains a JSON object representing all the data in the JSON file.

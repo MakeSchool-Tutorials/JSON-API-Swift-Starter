@@ -54,10 +54,10 @@ class ViewController: UIViewController {
     
     // Updates the image view when passed a url string
     func loadPoster(urlString: String) {
-        posterImageView.af_setImageWithURL(NSURL(string: urlString)!)
+        posterImageView.af_setImageWithURL(URL(string: urlString)!)
     }
     
-    @IBAction func viewOniTunesPressed(sender: AnyObject) {
+    @IBAction func viewOniTunesPressed(_ sender: AnyObject) {
         
     }
     
