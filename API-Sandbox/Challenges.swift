@@ -75,7 +75,7 @@ internal func exerciseThree() {
     // This would normally be network calls that return `NSData`. We'll show you how to do those soon!
     // In this case, we are using a local JSON file.
     guard let jsonURL = Bundle.main.url(forResource: "iTunes-Movies", withExtension: "json") else {
-        print("Could not find Random-User.json!")
+        print("Could not find iTunes-Movies.json!")
         return
     }
     let jsonData = try! Data(contentsOf: jsonURL)
