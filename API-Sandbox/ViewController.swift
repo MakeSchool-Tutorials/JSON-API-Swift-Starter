@@ -30,9 +30,9 @@ class ViewController: UIViewController {
         
         let apiToContact = "https://itunes.apple.com/us/rss/topmovies/limit=25/json"
         // This code will call the iTunes top 25 movies endpoint listed above
-        Alamofire.request(.GET, apiToContact).validate().responseJSON() { response in
+        Alamofire.request(apiToContact).validate().responseJSON() { [weak self] response in
             switch response.result {
-            case .Success:
+            case .success:
                 if let value = response.result.value {
                     let json = JSON(value)
                     
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
                     
                     
                 }
-            case .Failure(let error):
+            case .failure(let error):
                 print(error)
             }
         }
@@ -53,11 +53,11 @@ class ViewController: UIViewController {
     }
     
     // Updates the image view when passed a url string
-    func loadPoster(urlString: String) {
-        posterImageView.af_setImageWithURL(NSURL(string: urlString)!)
+    func loadPoster(_ urlString: String) {
+        posterImageView.af_setImage(withURL: URL(string: urlString)!)
     }
     
-    @IBAction func viewOniTunesPressed(sender: AnyObject) {
+    @IBAction func viewOniTunesPressed(_ sender: AnyObject) {
         
     }
     
