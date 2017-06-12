@@ -12,13 +12,13 @@ Controls the visibility of the network activity indicator on iOS using Alamofire
 
 - [X] Automatic Management of Activity Indicator Visiblity
 - [X] Delay Timers to Mitigate Flicker
-- [X] Can Support `NSURLSession` Instances Not Managed by Alamofire
+- [X] Can Support `URLSession` Instances Not Managed by Alamofire
 - [x] Comprehensive Test Coverage
 - [x] [Complete Documentation](http://cocoadocs.org/docsets/AlamofireNetworkActivityIndicator)
 
 ## Requirements
 
-- iOS 9.0+
+- iOS 8.0+
 - Xcode 8.0+
 - Swift 3.0+
 
@@ -44,7 +44,7 @@ Controls the visibility of the network activity indicator on iOS using Alamofire
 $ gem install cocoapods
 ```
 
-> CocoaPods 1.0.0+ is required.
+> CocoaPods 1.1.0+ is required.
 
 To integrate AlamofireNetworkActivityIndicator into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -53,7 +53,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
 use_frameworks!
 
-pod 'AlamofireNetworkActivityIndicator', '~> 1.1'
+pod 'AlamofireNetworkActivityIndicator', '~> 2.0'
 ```
 
 Then, run the following command:
@@ -76,37 +76,73 @@ $ brew install carthage
 To integrate AlamofireNetworkActivityIndicator into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "Alamofire/AlamofireNetworkActivityIndicator" ~> 1.1
+github "Alamofire/AlamofireNetworkActivityIndicator" ~> 2.0
 ```
+
+### Manually
+
+If you prefer not to use either of the aforementioned dependency managers, you can integrate AlamofireNetworkActivityIndicator into your project manually.
+
+#### Embedded Framework
+
+- Open up Terminal, `cd` into your top-level project directory, and run the following command "if" your project is not initialized as a git repository:
+
+  ```bash
+$ git init
+```
+
+- Add AlamofireNetworkActivityIndicator as a git [submodule](http://git-scm.com/docs/git-submodule) by running the following command:
+
+  ```bash
+$ git submodule add https://github.com/Alamofire/AlamofireNetworkActivityIndicator.git
+```
+
+- Open the new `AlamofireNetworkActivityIndicator` folder, and drag the `AlamofireNetworkActivityIndicator.xcodeproj` into the Project Navigator of your application's Xcode project.
+
+    > It should appear nested underneath your application's blue project icon. Whether it is above or below all the other Xcode groups does not matter.
+
+- Select the `AlamofireNetworkActivityIndicator.xcodeproj` in the Project Navigator and verify the deployment target matches that of your application target.
+- Next, select your application project in the Project Navigator (blue project icon) to navigate to the target configuration window and select the application target under the "Targets" heading in the sidebar.
+- In the tab bar at the top of that window, open the "General" panel.
+- Click on the `+` button under the "Embedded Binaries" section.
+- You will see two different `AlamofireNetworkActivityIndicator.xcodeproj` folders each with two different versions of the `AlamofireNetworkActivityIndicator.framework` nested inside a `Products` folder.
+
+    > It does not matter which `Products` folder you choose from.
+
+- Select the `AlamofireNetworkActivityIndicator.framework` and add it to your project.
+
+- And that's it!
+
+  > The `AlamofireNetworkActivityIndicator.framework` is automagically added as a target dependency, linked framework and embedded framework in a copy files build phase which is all you need to build on the simulator and a device.
 
 ---
 
 ## Usage
 
-The `NetworkActivityIndicatorManager` manages the state of the network activity indicator. To begin using it, all that is required is to enable the `sharedManager` in `application:didFinishLaunchingWithOptions:` in your `AppDelegate`.
+The `NetworkActivityIndicatorManager` manages the state of the network activity indicator. To begin using it, all that is required is to enable the `shared` instance in `application:didFinishLaunchingWithOptions:` in your `AppDelegate`.
 
 ```swift
-NetworkActivityIndicatorManager.sharedManager.isEnabled = true
+NetworkActivityIndicatorManager.shared.isEnabled = true
 ```
 
-By enabling the `sharedManager` for the system, the network activity indicator will show and hide automatically as Alamofire requests start and complete.
+By enabling the `shared` manager for the system, the network activity indicator will show and hide automatically as Alamofire requests start and complete.
 
 ### Notifications
 
-The `NetworkActivityIndicatorManager` manages the currently active network request count by observing notifications emitted from Alamofire. By observing the task state changes, the `sharedManager` instance always knows how many requests are currently active and updates the visibility of the activity indicator accordingly.
+The `NetworkActivityIndicatorManager` manages the currently active network request count by observing notifications emitted from Alamofire. By observing the task state changes, the `shared` manager always knows how many requests are currently active and updates the visibility of the activity indicator accordingly.
 
-> It is possible to have the `sharedManager` observe `NSURLSession` instances not inside Alamofire. You will need to emit matching notifications from the `NSURLSessionDelegate` matching those found in [Alamofire](https://github.com/Alamofire/Alamofire/blob/master/Source/Notifications.swift#L28-L44).
+> It is possible to have the `shared` manager observe `URLSession` instances not inside Alamofire. You will need to emit matching notifications from the `URLSessionDelegate` matching those found in [Alamofire](https://github.com/Alamofire/Alamofire/blob/master/Source/Notifications.swift#L27-L42).
 
 ### Delay Timers
 
-In order to make the activity indicator experience for a user as pleasant as possible, there need to be start and stop delays added in to avoid flickering. There are two such delay timers built into the `sharedManager`.
+In order to make the activity indicator experience for a user as pleasant as possible, there need to be start and stop delays added in to avoid flickering. There are two such delay timers built into the `shared` manager.
 
 #### Start Delay
 
 The start delay is a time interval indicating the minimum duration of networking activity that should occur before the activity indicator is displayed. This helps avoid needlessly displaying the indicator for really fast network requests. The default value is `1.0` second. You can easily change the default value if needed.
 
 ```swift
-NetworkActivityIndicatorManager.sharedManager.startDelay = 1.0
+NetworkActivityIndicatorManager.shared.startDelay = 1.0
 ```
 
 #### Completion Delay
@@ -114,7 +150,7 @@ NetworkActivityIndicatorManager.sharedManager.startDelay = 1.0
 The completion delay is a time interval indicating the duration of time that no networking activity should be observed before dismissing the activity indicator. This allows the activity indicator to be continuously displayed between multiple network requests. Without this delay, the activity indicator tends to flicker. The default value is `0.2` seconds. You can easily change the default value if needed.
 
 ```swift
-NetworkActivityIndicatorManager.sharedManager.completionDelay = 0.2
+NetworkActivityIndicatorManager.shared.completionDelay = 0.2
 ```
 
 ---

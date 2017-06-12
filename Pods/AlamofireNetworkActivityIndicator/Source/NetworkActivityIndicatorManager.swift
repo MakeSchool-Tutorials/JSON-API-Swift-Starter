@@ -31,13 +31,13 @@ import UIKit
 /// animating the indicator accordingly. The indicator will continue to animate while the internal activity count is
 /// greater than zero.
 ///
-/// To use the `NetworkActivityIndicatorManager`, the `sharedManager` should be enabled in the
+/// To use the `NetworkActivityIndicatorManager`, the `shared` instance should be enabled in the
 /// `application:didFinishLaunchingWithOptions:` method in the `AppDelegate`. This can be done with the following:
 ///
-///     NetworkActivityIndicatorManager.sharedManager.isEnabled = true
+///     NetworkActivityIndicatorManager.shared.isEnabled = true
 ///
-/// By setting the `isEnabled` property to `true` for the `sharedManager`, the network activity indicator will show and
-/// hide automatically as Alamofire requests start and complete. You should not ever need to call
+/// By setting the `isEnabled` property to `true` for the `shared` instance, the network activity indicator will show 
+/// and hide automatically as Alamofire requests start and complete. You should not ever need to call
 /// `incrementActivityCount` and `decrementActivityCount` yourself.
 public class NetworkActivityIndicatorManager {
     private enum ActivityIndicatorState {
@@ -47,7 +47,7 @@ public class NetworkActivityIndicatorManager {
     // MARK: - Properties
 
     /// The shared network activity indicator manager for the system.
-    public static let sharedManager = NetworkActivityIndicatorManager()
+    public static let shared = NetworkActivityIndicatorManager()
 
     /// A boolean value indicating whether the manager is enabled. Defaults to `false`.
     public var isEnabled: Bool {
@@ -147,7 +147,6 @@ public class NetworkActivityIndicatorManager {
     /// Generally, this method should not need to be used directly.
     public func decrementActivityCount() {
         lock.lock() ; defer { lock.unlock() }
-        guard activityCount > 0 else { return }
 
         activityCount -= 1
         updateActivityIndicatorStateForNetworkActivityChange()
@@ -215,7 +214,7 @@ public class NetworkActivityIndicatorManager {
     // MARK: - Private - Timers
 
     private func scheduleStartDelayTimer() {
-        startDelayTimer = Timer(
+        let timer = Timer(
             timeInterval: startDelay,
             target: self,
             selector: #selector(NetworkActivityIndicatorManager.startDelayTimerFired),
@@ -223,12 +222,16 @@ public class NetworkActivityIndicatorManager {
             repeats: false
         )
 
-        RunLoop.main.add(startDelayTimer!, forMode: .commonModes)
-        RunLoop.main.add(startDelayTimer!, forMode: .UITrackingRunLoopMode)
+        DispatchQueue.main.async {
+            RunLoop.main.add(timer, forMode: .commonModes)
+            RunLoop.main.add(timer, forMode: .UITrackingRunLoopMode)
+        }
+
+        startDelayTimer = timer
     }
 
     private func scheduleCompletionDelayTimer() {
-        completionDelayTimer = Timer(
+        let timer = Timer(
             timeInterval: completionDelay,
             target: self,
             selector: #selector(NetworkActivityIndicatorManager.completionDelayTimerFired),
@@ -236,8 +239,12 @@ public class NetworkActivityIndicatorManager {
             repeats: false
         )
 
-        RunLoop.main.add(completionDelayTimer!, forMode: .commonModes)
-        RunLoop.main.add(completionDelayTimer!, forMode: .UITrackingRunLoopMode)
+        DispatchQueue.main.async {
+            RunLoop.main.add(timer, forMode: .commonModes)
+            RunLoop.main.add(timer, forMode: .UITrackingRunLoopMode)
+        }
+
+        completionDelayTimer = timer
     }
 
     @objc private func startDelayTimerFired() {
