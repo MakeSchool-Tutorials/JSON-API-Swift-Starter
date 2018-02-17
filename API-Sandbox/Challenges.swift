@@ -22,7 +22,7 @@ internal func exerciseOne() {
     // Enter SwiftyJSON!
     // userData now contains a JSON object representing all the data in the JSON file.
     // This JSON file contains the same data as the tutorial example.
-    let userData = JSON(data: jsonData)
+    let userData = try! JSON(data: jsonData)
     
     // Alright, now we have a JSON object from SwiftyJSON containing the user data!
     // Let's save the user's first name to a constant!
@@ -60,7 +60,7 @@ internal func exerciseTwo() {
     // Enter SwiftyJSON!
     // moviesData now contains a JSON object representing all the data in the JSON file.
     // This JSON file contains the same data as the tutorial example.
-    let moviesData = JSON(data: jsonData)
+    let moviesData = try! JSON(data: jsonData)
     
     // We save the value for ["feed"]["entry"][0] to topMovieData to pull out just the first movie's data
     let topMovieData = moviesData["feed"]["entry"][0]
@@ -83,7 +83,7 @@ internal func exerciseThree() {
     // Enter SwiftyJSON!
     // moviesData now contains a JSON object representing all the data in the JSON file.
     // This JSON file contains the same data as the tutorial example.
-    let moviesData = JSON(data: jsonData)
+    let moviesData = try! JSON(data: jsonData)
     
     // We've done you the favor of grabbing an array of JSON objects representing each movie
     let allMoviesData = moviesData["feed"]["entry"].arrayValue

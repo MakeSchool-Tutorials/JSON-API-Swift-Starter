@@ -1,16 +1,16 @@
 PODS:
-  - Alamofire (4.4.0)
-  - AlamofireImage (3.2.0):
-    - Alamofire (~> 4.1)
-  - AlamofireNetworkActivityIndicator (2.1.0):
-    - Alamofire (~> 4.1)
-  - SwiftyJSON (2.3.2)
+  - Alamofire (4.6.0)
+  - AlamofireImage (3.3.0):
+    - Alamofire (~> 4.5)
+  - AlamofireNetworkActivityIndicator (2.2.0):
+    - Alamofire (~> 4.5)
+  - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
   - Alamofire (from `https://github.com/Alamofire/Alamofire.git`)
   - AlamofireImage (from `https://github.com/Alamofire/AlamofireImage.git`)
   - AlamofireNetworkActivityIndicator (from `https://github.com/Alamofire/AlamofireNetworkActivityIndicator.git`)
-  - SwiftyJSON (from `https://github.com/IBM-Swift/SwiftyJSON.git`)
+  - SwiftyJSON
 
 EXTERNAL SOURCES:
   Alamofire:
@@ -19,29 +19,24 @@ EXTERNAL SOURCES:
     :git: https://github.com/Alamofire/AlamofireImage.git
   AlamofireNetworkActivityIndicator:
     :git: https://github.com/Alamofire/AlamofireNetworkActivityIndicator.git
-  SwiftyJSON:
-    :git: https://github.com/IBM-Swift/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
   Alamofire:
-    :commit: 22d4d74a419917ea122c23006cbc183aea5d84f8
+    :commit: 098a42007eda5d417a41db44fac14abffa55b234
     :git: https://github.com/Alamofire/Alamofire.git
   AlamofireImage:
-    :commit: 1d87e57f5ac91c84d98e1d541599c47d2175003d
+    :commit: c7cf04f7e597f5344e97e39d39fa99ffbd87fe91
     :git: https://github.com/Alamofire/AlamofireImage.git
   AlamofireNetworkActivityIndicator:
-    :commit: 6ceb5137cb41aaf6358df95216c8346dda10c834
+    :commit: da5fe47a66e05e9c3b18e2e2997b6edd60aa0c53
     :git: https://github.com/Alamofire/AlamofireNetworkActivityIndicator.git
-  SwiftyJSON:
-    :commit: d5f2741e9293775d3b245a4c07fd3d2435b630d9
-    :git: https://github.com/IBM-Swift/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: 4c2bf7fa03c4a626163606de0a417568c270575e
-  AlamofireImage: 0ff319da83d6abb78a661d7296e742e7f65e15f5
-  AlamofireNetworkActivityIndicator: 12e473216e719220870d6b23d1723cd601fcedff
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  Alamofire: 0dda98a0ed7eec4bdcd5fe3cdd35fcd2b3022825
+  AlamofireImage: 4e0cba538743dc2e36cdb5eb5e057a722560769d
+  AlamofireNetworkActivityIndicator: 1b37f625e82da75465fc624bf26cf37cabd99a42
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: edfae1f3b53714ba98ae90a592047de173cdca3c
+PODFILE CHECKSUM: eba54b2725d721b27cf1840f6a168a8bf63c330a
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0

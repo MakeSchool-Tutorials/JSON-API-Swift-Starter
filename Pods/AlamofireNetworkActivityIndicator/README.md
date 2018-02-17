@@ -19,12 +19,12 @@ Controls the visibility of the network activity indicator on iOS using Alamofire
 ## Requirements
 
 - iOS 8.0+
-- Xcode 8.0+
-- Swift 3.0+
+- Xcode 8.1, 8.2, 8.3, and 9.0
+- Swift 3.0, 3.1, 3.2, and 4.0
 
 ## Dependencies
 
-- [Alamofire 4.0+](https://github.com/Alamofire/Alamofire)
+- [Alamofire 4.5+](https://github.com/Alamofire/Alamofire)
 
 ## Communication
 
@@ -53,7 +53,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
 use_frameworks!
 
-pod 'AlamofireNetworkActivityIndicator', '~> 2.0'
+pod 'AlamofireNetworkActivityIndicator', '~> 2.2'
 ```
 
 Then, run the following command:
@@ -76,7 +76,7 @@ $ brew install carthage
 To integrate AlamofireNetworkActivityIndicator into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "Alamofire/AlamofireNetworkActivityIndicator" ~> 2.0
+github "Alamofire/AlamofireNetworkActivityIndicator" ~> 2.2
 ```
 
 ### Manually
@@ -87,13 +87,13 @@ If you prefer not to use either of the aforementioned dependency managers, you c
 
 - Open up Terminal, `cd` into your top-level project directory, and run the following command "if" your project is not initialized as a git repository:
 
-  ```bash
+```bash
 $ git init
 ```
 
 - Add AlamofireNetworkActivityIndicator as a git [submodule](http://git-scm.com/docs/git-submodule) by running the following command:
 
-  ```bash
+```bash
 $ git submodule add https://github.com/Alamofire/AlamofireNetworkActivityIndicator.git
 ```
 
@@ -179,7 +179,7 @@ The [ASF](https://github.com/Alamofire/Foundation#members) is looking to raise m
 * Potentially fund test servers to make it easier for us to test the edge cases
 * Potentially fund developers to work on one of our projects full-time
 
-The community adoption of the ASF libraries has been amazing. We are greatly humbled by your enthusiam around the projects, and want to continue to do everything we can to move the needle forward. With your continued support, the ASF will be able to improve its reach and also provide better legal safety for the core members. If you use any of our libraries for work, see if your employers would be interested in donating. Our initial goal is to raise $1000 to get all our legal ducks in a row and kickstart this campaign. Any amount you can donate today to help us reach our goal would be greatly appreciated.
+The community adoption of the ASF libraries has been amazing. We are greatly humbled by your enthusiasm around the projects, and want to continue to do everything we can to move the needle forward. With your continued support, the ASF will be able to improve its reach and also provide better legal safety for the core members. If you use any of our libraries for work, see if your employers would be interested in donating. Our initial goal is to raise $1000 to get all our legal ducks in a row and kickstart this campaign. Any amount you can donate today to help us reach our goal would be greatly appreciated.
 
 <a href='https://pledgie.com/campaigns/31474'><img alt='Click here to lend your support to: Alamofire Software Foundation and make a donation at pledgie.com !' src='https://pledgie.com/campaigns/31474.png?skin_name=chrome' border='0' ></a>
 
